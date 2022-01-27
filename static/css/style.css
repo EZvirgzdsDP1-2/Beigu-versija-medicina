@@ -1,0 +1,137 @@
+
+
+
+
+
+
+ 
+
+
+
+/*Logo*/ /*
+  .Logo img {
+  width: 10px;
+  height: 100px;
+  cursor:pointer;
+  
+}
+*/
+.Logo{
+  height: 40px;
+  width: 60;
+  padding:0;
+}
+/*top navigation button style*/
+.myButton {
+
+    background-color: rgb(255, 255, 255); 
+    overflow: hidden;
+    
+}
+/*top navigation button text*/
+.myButton a {
+  font-size: 27px;
+    font-family:Arial;
+    float: left;
+    display: block;
+    color:#2365B3;
+    text-align: center;
+    text-decoration: none;
+    padding-left: 19px;
+  
+}
+.myButtonPaddingCostum {
+  padding: 15px;
+}
+
+.myButton a:hover{
+    background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+    background-color:#bab1ba;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+}
+/*Poga*/
+.jaunumuParagrafs{
+  margin: auto;
+  width: 50%;
+  border: 3px solid red;
+  padding: 10px;
+}
+  .myVizites{
+     position: absolute;
+     top: 40%;
+      left: 30%;
+      text-align: center;
+      border: 3px solid black;
+      background-color: rgba(240, 248, 255, 0.863);
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      
+      width: 400px;
+      height: 150px;
+
+  }
+  .myVizites2{
+    width: 80%;
+    text-align: left;
+    border: 1px solid black;
+  }
+  .myInput{
+    width: 30px;
+    margin: auto;
+  }
+
+  .buttonForDeletion {
+    background-color: #574f4f;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+  }
+  
+  
+
+
+/*containerWhite*/
+.containerBackround{
+  background-color: rgba(240, 248, 255, 0.822);
+}
+
+/*containeris pierakstam*/
+.containerPieteiksanas {
+      position: absolute;
+      border: 3px solid black; 
+      background-color: rgba(240, 248, 255, 0.856);
+      top: 50%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+      font-size: 50px;
+      padding:20px ;
+
+  }
+.containerPieteiksanasArsti {
+      position: absolute;
+      border: 3px solid black; 
+      background-color: rgba(240, 248, 255, 0.856);
+      top: 50%;
+      left: 30%;
+      transform: translate(-50%, -50%);
+      font-size: 70px;
+       padding:20px ;
+
+  }
+body{
+  background-color:#70BFC7;
+  position: relative;
+} 
+
+/*background Image*/
+.addPosition{
+ width:1900px ;
+ height:700px ;
+  
+ }

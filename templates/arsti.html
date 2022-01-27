@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>MedNet</title>
+</head>
+<body>
+  
+    
+   
+  
+    <div class="containerBackround">
+      <header >
+      
+          <div class="header">
+              <div id="kk-big-baner" >
+              		
+                </a>
+              </div>
+          </div>
+                <div class="myButton">
+                 
+                       <a href="/"> <img class="Logo"src="static/MedNetLogoMyVer1..png";
+                      style="width:100px" /> </a>
+                      
+                      <div class="myButtonPaddingCostum">
+                        <a href="/" >Sākums</a> 
+                        <a href="/doktoratiunpoliklinikas" >Doktorati un Poliklinkas</a>
+                        <a href="/kontakti" >Kontakti</a>
+                        <a href="/arsti" >Ārsti</a>
+                      </div>
+              </div>
+               
+        
+      </header> 
+     <img class="addPosition" src="static/AI-and-Medicine.jpg" >
+        <div class="containerPieteiksanasArsti"> 
+          <input type="text" id="arstaVards" placeholder="Ārsta vārds uzvārds">
+          <input type="text" id="arstaJoma" placeholder="darba joma">
+          <input type="time" id="laiks" placeholder="darba laiks">
+          
+          <button id="pievienotArstu" type="submit" onclick="arstu_ievade()" >add</button>
+          
+
+          <ul id="arstuUL">
+              <div id="arstuSaraksts">
+                
+              </div>
+          </ul>
+
+          <button class="buttonForDeletion" type="button" onclick="arstuIzdzesana()">Izdzest visus ārstus</button>
+
+        </div>
+    </div>
+          <script src="static/js/global.js"></script>
+        
+    </body>
+    </html>
