@@ -9,7 +9,7 @@
     
 </head>
 <body>
-     <div class="containerBackround">
+     <!---<div class="containerBackround">
          
                 <div class="myButton">
                  
@@ -54,7 +54,73 @@
           <button id="arstiDrop">Ārsti</button>
         </div>
       </div>
-    </div>     
+    </div> -->  
+
+  <div class="containerBackround">
+    <div class="myButton">
+                 
+                      <a href="/"> <img class="Logo"src="static/MedNetLogoMyVer1..png";
+                      style="width:100px" /> </a>
+                      
+                      <div class="myButtonPaddingCostum">
+                        <a href="/" >Sākums</a>
+                      </div>
+              </div>
+  </div>
+  <div class="PierakstsLogi">
+
+    <center>
+      <table border="4">
+        <thead>
+          <tr>
+              <th>Ievadiet pieejamu pierakstu</th>
+              <input type="text" id="slimnica" placeholder="Slimnīca">
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <th>Slimnīca</th>
+              <td><input type="text" id="slimnica" placeholder="Slimnīca"></td>
+          </tr>
+          <tr>
+            <th>Amats</th>
+            <td><input type="text" id="amats" placeholder="Amats"></td>
+          </tr>
+          <tr>
+            <th>Ārsts</th>
+            <td><input type="text" id="arsts" placeholder="Ārsts"></td>
+          </tr>
+          <tr>
+            <th>Datums</th>
+            <td><input type="text" id="datums" placeholder="Datums"></td>
+          </tr>
+          <tr>
+            <th>Laiks</th>
+            <td><input type="text" id="laiks" placeholder="Laiks"></td>
+          </tr>
+          <tr id="btna">
+            <td colspan="4">
+              <input type="button" id="btn" value="Add" onclick="AddRow()"></input>
+            </td>  
+          </tr>
+      
+    
+        
+        </tbody>
+      </table>
+      <table border="4" id="show">
+        <thead>
+          <tr>
+            <th>Slimnīca</th>
+            <th>Amats</th>
+            <th>Ārsts</th>
+            <th>Datums</th>
+            <th>Laiks</th>
+          </tr>
+        </thead>
+      </table>
+    </center>
+  </div>
        
   
         <script src="static/js/global.js"></script>
