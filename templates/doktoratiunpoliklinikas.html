@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/css/style.css">
-    
+
 </head>
+
 <body>
      <!---<div class="containerBackround">
          
@@ -67,62 +68,173 @@
                       </div>
               </div>
   </div>
-  <div class="PierakstsLogi">
-
-    <center>
-      <table border="4">
+    <table border="4">
         <thead>
-          <tr>
-              <th>Ievadiet pieejamu pierakstu</th>
-              <input type="text" id="slimnica" placeholder="Slimnīca">
-          </tr>
+        <tr>
+            <th>Slimnīca</th>
+            <td><input type="text" placeholder="Slimnīca" name="slimnica" id="slimnica"></td>
+        </tr>
         </thead>
         <tbody>
-          <tr>
-              <th>Slimnīca</th>
-              <td><input type="text" id="slimnica" placeholder="Slimnīca"></td>
-          </tr>
-          <tr>
+        <tr>
             <th>Amats</th>
-            <td><input type="text" id="amats" placeholder="Amats"></td>
-          </tr>
-          <tr>
+            <td><input type="text" placeholder="Amats" name="amats" id="amats"></td>
+        </tr>
+        <tr>
             <th>Ārsts</th>
-            <td><input type="text" id="arsts" placeholder="Ārsts"></td>
-          </tr>
-          <tr>
+            <td><input type="text" placeholder="Vārds Uzvārds" name="arsts" id="arsts"></td>
+        </tr>
+        <tr>
             <th>Datums</th>
-            <td><input type="text" id="datums" placeholder="Datums"></td>
-          </tr>
-          <tr>
+            <td><input type="date" placeholder="dd/mm/yyyy" name="datums" id="datums"></td>
+        </tr>
+        <tr>
             <th>Laiks</th>
-            <td><input type="text" id="laiks" placeholder="Laiks"></td>
-          </tr>
-          <tr id="btna">
-            <td colspan="4">
-              <input type="button" id="btn" value="Add" onclick="AddRow()"></input>
-            </td>  
-          </tr>
-      
-    
-        
+            <td><input type="time" placeholder="00:00" name="laiks" id="laiks"></td>
+        </tr>
+        <tr id="btna">
+            <td colspan="2"><input type="button" name="button" id="btn" value="Add" onclick="AddRow()"></td>
+        </tr>
         </tbody>
-      </table>
-      <table border="4" id="show">
+    </table>
+
+    <table border="4" id="show">
         <thead>
-          <tr>
+        <tr>
             <th>Slimnīca</th>
             <th>Amats</th>
             <th>Ārsts</th>
             <th>Datums</th>
             <th>Laiks</th>
-          </tr>
+        </tr>
         </thead>
-      </table>
-    </center>
-  </div>
-       
+    </table>
+</center>
+
+<button id="ClearArray">[Debug] clear array</button>
   
-        <script src="static/js/global.js"></script>
-    </body>
-    </html>
+<script type="text/javascript" >
+
+  var list1 = [];
+  var list2 = [];
+  var list3 = [];
+  var list4 = [];
+  var list5 = [];
+
+  
+  
+  var n = 1;
+  var x = 0;
+
+  
+  
+  function AddRow(){
+      let AddRown = document.getElementById('show');
+      let NewRow = AddRown.insertRow(n);
+    
+    /* veca versija
+      var AddRown = document.getElementById('show');
+      var NewRow = AddRown.insertRow(n);
+
+    
+      list1[x] = document.getElementById("slimnica").value;
+      list2[x] = document.getElementById("amats").value;
+      list3[x] = document.getElementById("arsts").value;
+      list4[x] = document.getElementById("datums").value;
+      list5[x] = document.getElementById("laiks").value;
+*/
+      let firstInput = document.getElementById("slimnica").value;
+      let secondInput  = document.getElementById("amats").value;
+      let thirdInput  = document.getElementById("arsts").value;
+      let fourthInput  = document.getElementById("datums").value;
+      let fifthInput  = document.getElementById("laiks").value;
+
+      document.getElementById("slimnica").value = "";
+      document.getElementById("amats").value = "";
+      document.getElementById("arsts").value = "";
+      document.getElementById("datums").value = "";
+      document.getElementById("laiks").value = "";
+    
+      adminInfo.push({slimnica: firstInput, amats: secondInput, arsts: thirdInput, datums: fourthInput, laiks: fifthInput});
+
+      localStorage.setItem("Admin saraksts",JSON.stringify(adminInfo));
+    
+      let cel1 = NewRow.insertCell(0);
+      let cel2 = NewRow.insertCell(1);
+      let cel3 = NewRow.insertCell(2);
+      let cel4 = NewRow.insertCell(3);
+      let cel5 = NewRow.insertCell(4);
+    
+    /*veca versija
+      var cel1 = NewRow.insertCell(0);
+      var cel2 = NewRow.insertCell(1);
+      var cel3 = NewRow.insertCell(2);
+      var cel4 = NewRow.insertCell(3);
+      var cel5 = NewRow.insertCell(4);
+
+    /*veca versija
+      cel1.innerHTML = list1[x];
+      cel2.innerHTML = list2[x];
+      cel3.innerHTML = list3[x];
+      cel4.innerHTML = list4[x];
+      cel5.innerHTML = list5[x];
+    */
+      for(let i=0;i<adminInfo.length;++i)
+        {
+          cel1.innerHTML = adminInfo[i].slimnica;
+          cel2.innerHTML = adminInfo[i].amats;
+          cel3.innerHTML = adminInfo[i].arsts;
+          cel4.innerHTML = adminInfo[i].datums;
+          cel5.innerHTML = adminInfo[i].laiks;
+        }
+     
+    n++;
+    /* Veca versija
+      n++;
+      x++;
+    */
+    }
+  
+  window.addEventListener('load', () => {
+    LoadDataToPage();
+});
+
+  
+  function LoadDataToPage()
+{
+  //let adminListDoktorati = document.getElementById("adminSarakstsTest");
+  //adminListDoktorati.innerHTML = ""; = localStorage.getItem();
+  let tempDataArray = JSON.parse(localStorage.getItem("Admin saraksts") || "Empty");
+
+  
+  console.log("Loaded LoadDataToPage(). Array: "+ tempDataArray);
+  let o = 1;
+  let AddRown = document.getElementById('show');      
+        
+  for(let i=0;i<tempDataArray.length;++i)
+  {
+      let NewRow = AddRown.insertRow(o);
+          
+    
+      let cel1 = NewRow.insertCell(0);
+      let cel2 = NewRow.insertCell(1);
+      let cel3 = NewRow.insertCell(2);
+      let cel4 = NewRow.insertCell(3);
+      let cel5 = NewRow.insertCell(4);
+
+      cel1.innerHTML = tempDataArray[i].slimnica;
+      cel2.innerHTML = tempDataArray[i].amats;
+      cel3.innerHTML = tempDataArray[i].arsts;
+      cel4.innerHTML = tempDataArray[i].datums;
+      cel5.innerHTML = tempDataArray[i].laiks;
+
+    
+      ++o;
+  }
+}
+   
+</script>
+<script src="static/js/global.js"></script>
+  
+</body> 
+</html>

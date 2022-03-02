@@ -7,29 +7,66 @@
     <link rel="stylesheet" href="static/css/style.css">
     <title>MedNet</title>
 </head>
-
+<body>
   <div class="containerBackround">
-         <header >
+    <header >
+      <div class="header">
+        <div id="kk-big-baner" >   		
+          </a>
+        </div>
+      </div>
+      <div class="myButton">        
+        <a href="/"> 
+          <img class="Logo" src="static/MedNetLogoMyVer1..png"/> 
+        </a>               
+        <div class="myButtonPaddingCostum">
+          <a href="/" >Sākums</a> 
+          <a href="/kontakti" >Kontakti</a>
+        </div>
+      </div>
+    </header>    
+    <!--<img class="addPosition" src="static/AI-and-Medicine.jpg" >-->
+    
+    <!-- --> 
+    <p id="geeks" style=
+        "font-size:20px; font-weight:bold">
+    </p>
+  
       
-          <div class="header">
-              <div id="kk-big-baner" >
-              		
-                </a>
-              </div>
-          </div>
-                <div class="myButton">
-                 
-                       <a href="/"> <img class="Logo"src="static/MedNetLogoMyVer1..png";
-                      style="width:100px" /> </a>
-                      
-                      <div class="myButtonPaddingCostum">
-                        <a href="/" >Sākums</a> 
-                        <a href="/kontakti" >Kontakti</a>
-                      </div>
-              </div>
-         </header>    
-         <img class="addPosition" src="static/AI-and-Medicine.jpg" >
-  <div/>      
+    <select id="arr"></select>
+      
+    <br><br>
+      
+    <button onclick="GFG_Fun();">
+        click here
+    </button>
+      
+    <p id="gfg" style="font-size: 26px;
+        font-weight: bold;color: green;">
+    </p>
+
+    <
+    
+    
+  </div>      
+  <script>
+        var down = document.getElementById('gfg');
+        var select = document.getElementById("arr");
+        var elmts = JSON.parse(localStorage.getItem("Admin saraksts") || "Empty");
+        
+  
+        // Main function
+        function GFG_Fun() {
+            for (var i = 0; i < elmts.length; i++) {
+                var optn = elmts[i].slimnica;
+                var el = document.createElement("option");
+                el.textContent = optn;
+                el.value = optn;
+                select.appendChild(el);
+            }
+            //down.innerHTML = "Elements Added";
+        }
+    </script>
     <script src="static/js/global.js"></script>
 </body>
 </html>

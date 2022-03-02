@@ -1,193 +1,87 @@
-let slimnicuSaraksts = []; //paredzets prieks doktori un poliklinikas
-let arstuSaraksts = []; //Paredzēts prieks arsti.html
+let adminInfo = [];
 
 
-
-function arstu_ievade()
+/*
+function AddRow()
 {
-  let Input1, Input2, Input3 ;
-  Input1 = document.getElementById("arstaVards").value;
-  Input2 = document.getElementById("arstaJoma").value;
-  Input3 = document.getElementById("laiks").value;
- 
-  let lietina2 = {arstaVards : arstaVards.value, arstaJoma : arstaJoma.value, laiks : laiks.value }
+  console.log("AddRow called");
 
-  arstuSaraksts.push(lietina2)
- 
-  localStorage.setItem("Arstu Saraksts",JSON.stringify(arstuSaraksts))
- 
-  let li = document.createElement("li");
-  let t = document.createTextNode(Input1);
 
-  li.appendChild(t);
-
-  document.getElementById("arstuUL").appendChild(li);
+  let adminInputSlimnica, adminInputAmats, adminInputArsts, adminInputDatums, adminInputLaiks;
   
+  adminInputSlimnica = document.getElementById("ievadeSlimnica").value;
+  adminInputAmats = document.getElementById("ievadeAmats").value;
+  adminInputArsts = document.getElementById("ievadeArsts").value;
+  adminInputDatums = document.getElementById("ievadeDatums").value;
+  adminInputLaiks = document.getElementById("ievadeLaiks").value;
 
-  document.getElementById("arstaVards").value = "";
-  document.getElementById("arstaJoma").value = "";
-  document.getElementById("laiks").value = "";
-
-  let span = document.createElement("SPAN");
-  let txt = document.createTextNode(" " + Input2 + " ");
-  let text = document.createTextNode(Input3);
-
-
-  span.className = "arsti";
-  span.appendChild(txt);
-  span.appendChild(text);
-  li.appendChild(span);
-
-}
-
-function slimnicu_ievade()
-{
-  let Input47, Input5 ;
-  Input47 = document.getElementById("slimnica").value;
-  Input5 = document.getElementById("slimnicaAdrese").value;
-
- let li = document.createElement("li");
- let r = document.createTextNode(Input47);
- 
- li.appendChild(r);
- 
- document.getElementById("slimnicuUl").appendChild(li);
-
-  document.getElementById("slimnica").value = "";
-  document.getElementById("slimnicaAdrese").value = "";
-
-  let span = document.createElement("SPAN");
-  let tekst = document.createTextNode(" " + Input5 + " ");
-
-  span.className = "slimnicas";
-  span.appendChild(tekst);
-  li.appendChild(span);
-
-}
-
-function arstuSarakstuIzvade()
-{
+  let tempAdd = []
   
+  adminInputSlimnica.value = "";
+  adminInputAmats.value = "";
+  adminInputArsts.value = "";
+  adminInputDatums.value = "";
+  adminInputLaiks.value = "";
 }
-
-function arstuIzdzesana()
-{
-  arstuSaraksts = [];
-
-  location.reload();
-}
-
-function slimnicuIzdzesana()
-{
-  slimnicuSaraksts = [];
-
-  location.reload();
-}
-/* 
-document.getElementById("pievienotSlimnicas").addEventListener('click', () =>
-{
-  var lietina1 = {slimnica: slimnica.value, slimnicaAdrese: slimnicaAdrese.value};
-
-  slimnica.value = "";
-  slimnicaAdrese.value = "";
-
-  slimnicuSaraksts.push(lietina1);
-
-  paradiSlimnicas();
-})
-
-
-function arstuIzdzesana()
-{
-  arstuSaraksts = [];
-
-  paradiArstus();
-}
-
-
-function slimnicuIzdzesana()
-{
-  slimnicuSaraksts = [];
-  
-  
-  paradiSlimnicas();
-}
-
-
-
-
-function paradiSlimnicas()
-{
-  var visasVizites = document.getElementById('slimnicuSaraksts');
-  visasVizites.innerHTML = "";
-
-  for(let x=0; x < slimnicuSaraksts.length; ++x)
-  {
-    var slimnicuVizite=`
-      <div class="Vizites">
-        <li>
-        Slimnīca: ${slimnicuSaraksts[x].slimnica}
-        // Adrese: ${slimnicuSaraksts[x].slimnicaAdrese}
-        </li>
-      </div>`;
-    
-    visasVizites.innerHTML += slimnicuVizite;
-  }
-  
-
-
-document.getElementById("pievienotArstus").addEventListener('click', () =>
-{
-  var lietina = {arstaVards: arstaVards.value, arstaJoma: arstaJoma.value, laiks: laiks.value};
-
-  arstaVards.value = "";
-  arstaJoma.value = "";
-  laiks.value = "";
-  
-  arstuSaraksts.push(lietina);
-
-  paradiArstus();
-})
-
-function paradiArstus()
-{
-var visiArsti = document.getElementById('arstuSaraksts');
-  visiArsti.innerHTML = "";
-
-  for(var x=0; x < arstuSaraksts.length; ++x)
-  {
-    var arstuVizite=`
-      <div class="arstuVizites">
-        <li>
-        Vārds uzvārds: ${arstuSaraksts[x].arstaVards}
-        // Darba joma: ${arstuSaraksts[x].arstaJoma}
-        //// Laiks: ${arstuSaraksts[x].laiks}
-        </li>
-      </div>`;
-  }
-    visiArsti.innerHTML += arstuVizite;
-}
-
 */
 
-document.getElementById('arstiDrop').onclick = function() {
-  var values = ["Aina Motivāne", "Igors Litvjakovs", "Ingrīda Lasinska"];
-  
-  var select = document.createElement("select");
-  select.name = "dakteri";
-  select.id = "dakteri";
 
-  for (const val of values)
-  {
-      var option = document.createElement("option");
-      option.value = val;
-      option.text = val.charAt(0).toUpperCase() + val.slice(1);
-      select.appendChild(option);
-  }
-  
-  var label = document.createElement("label");
-  label.innerHTML = "Izvēlies ārstu: "
-  label.htmlFor = "dakteri";
-
-  document.getElementById("container").appendChild(label).appendChild(select);
+function callTestFunction()
+{
+  console.log("Caller testFunction()");
 }
+
+/*
+document.getElementById("adminBtn").addEventListener('click', () => {
+  console.log("AddRow called");
+
+  let adminInputSlimnica, adminInputAmats, adminInputArsts, adminInputDatums, adminInputLaiks;
+  
+  adminInputSlimnica = document.getElementById("ievadeSlimnica").value;
+  adminInputAmats = document.getElementById("ievadeAmats").value;
+  adminInputArsts = document.getElementById("ievadeArsts").value;
+  adminInputDatums = document.getElementById("ievadeDatums").value;
+  adminInputLaiks = document.getElementById("ievadeLaiks").value;
+
+  adminInfo.push([adminInputSlimnica, adminInputAmats, adminInputArsts, adminInputDatums, adminInputLaiks]);
+
+  localStorage.setItem("Admin saraksts",JSON.stringify(adminInfo));
+  
+  adminInputSlimnica.value = "";
+  adminInputAmats.value = "";
+  adminInputArsts.value = "";
+  adminInputDatums.value = "";
+  adminInputLaiks.value = "";
+  
+});
+*/
+
+/*
+function LoadDataToPage()
+{
+  //let adminListDoktorati = document.getElementById("adminSarakstsTest");
+  //adminListDoktorati.innerHTML = "";
+  console.log("Loaded LoadDataToPage()");
+  
+          
+        
+  for(let x = 0; x < adminInfo.length; ++x)
+  {
+      let y = 0;
+      document.getElementById("infoSaraksts").insertAdjacentHTML("afterend",`<table border="2" id="show"><thead><tr><th>${adminInfo[x][y]}</th><th>${adminInfo[x][y+1]}</th><th>${adminInfo[x][y+2]}</th><th>${adminInfo[x][y+3]}</th><th>${adminInfo[x][y+4]}</th></tr></thead></table>`);
+
+          
+        }
+  }
+*/
+
+  document.getElementById("ClearArray").addEventListener('click', function(){
+    adminInfo = [];
+    localStorage.clear();
+    location.reload();
+  });
+
+
+//document.getElementById("testFunctionCall").addEventListener('click', callTestFunction());                    
+
+
