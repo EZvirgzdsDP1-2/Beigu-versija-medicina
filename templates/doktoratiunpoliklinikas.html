@@ -132,17 +132,7 @@
       let AddRown = document.getElementById('show');
       let NewRow = AddRown.insertRow(n);
     
-    /* veca versija
-      var AddRown = document.getElementById('show');
-      var NewRow = AddRown.insertRow(n);
 
-    
-      list1[x] = document.getElementById("slimnica").value;
-      list2[x] = document.getElementById("amats").value;
-      list3[x] = document.getElementById("arsts").value;
-      list4[x] = document.getElementById("datums").value;
-      list5[x] = document.getElementById("laiks").value;
-*/
       let firstInput = document.getElementById("slimnica").value;
       let secondInput  = document.getElementById("amats").value;
       let thirdInput  = document.getElementById("arsts").value;
@@ -165,20 +155,7 @@
       let cel4 = NewRow.insertCell(3);
       let cel5 = NewRow.insertCell(4);
     
-    /*veca versija
-      var cel1 = NewRow.insertCell(0);
-      var cel2 = NewRow.insertCell(1);
-      var cel3 = NewRow.insertCell(2);
-      var cel4 = NewRow.insertCell(3);
-      var cel5 = NewRow.insertCell(4);
-
-    /*veca versija
-      cel1.innerHTML = list1[x];
-      cel2.innerHTML = list2[x];
-      cel3.innerHTML = list3[x];
-      cel4.innerHTML = list4[x];
-      cel5.innerHTML = list5[x];
-    */
+    
       for(let i=0;i<adminInfo.length;++i)
         {
           cel1.innerHTML = adminInfo[i].slimnica;

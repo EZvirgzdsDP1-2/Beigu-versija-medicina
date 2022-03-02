@@ -30,42 +30,177 @@
     <!-- --> 
     <p id="geeks" style=
         "font-size:20px; font-weight:bold">
+      Vizītes pieteikšana
     </p>
   
       
-    <select id="arr"></select>
-      
+    
+      <table border="4">
+        <thead>
+        <tr>
+            <th>Slimnīca</th>
+            <td><select id="arrSlimnica"></select></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>Amats</th>
+            <td><select id="arrAmats"></select></td>
+        </tr>
+        <tr>
+            <th>Ārsts</th>
+            <td><select id="arrArsts"></select></td>
+        </tr>
+        <tr>
+            <th>Datums</th>
+            <td><select id="arrDatums"></select></td>
+        </tr>
+        <tr>
+            <th>Laiks</th>
+            <td><select id="arrLaiks"></select></td>
+        </tr>
+        <tr id="btna">
+            <td colspan="2"><input type="button" name="button" id="addVisit" value="Add"></td>
+        </tr>
+        </tbody>
+    </table>
     <br><br>
       
-    <button onclick="GFG_Fun();">
-        click here
-    </button>
+    <table border="4" id="show">
+        <thead>
+        <tr>
+            <th>Slimnīca</th>
+            <th>Amats</th>
+            <th>Ārsts</th>
+            <th>Paredzētais ierašanās datums</th>
+            <th>Paredzētais ierašanās laiks</th>
+        </tr>
+        </thead>
+    </table>
       
     <p id="gfg" style="font-size: 26px;
         font-weight: bold;color: green;">
     </p>
 
-    <
     
     
   </div>      
   <script>
-        var down = document.getElementById('gfg');
-        var select = document.getElementById("arr");
-        var elmts = JSON.parse(localStorage.getItem("Admin saraksts") || "Empty");
-        
+        let down = document.getElementById('gfg');
+    
+        let selectSlimnica = document.getElementById("arrSlimnica");
+        let selectAmats = document.getElementById("arrAmats");
+        let selectArsts = document.getElementById("arrArsts");
+        let selectDatums = document.getElementById("arrDatums");
+        let selectLaiks = document.getElementById("arrLaiks");
+    
+        let elmts;
+        let checkIfArrayNull;
   
-        // Main function
-        function GFG_Fun() {
-            for (var i = 0; i < elmts.length; i++) {
-                var optn = elmts[i].slimnica;
-                var el = document.createElement("option");
-                el.textContent = optn;
-                el.value = optn;
-                select.appendChild(el);
-            }
-            //down.innerHTML = "Elements Added";
+        
+    
+      document.getElementById("addVisit").addEventListener('click', function(){
+        
+
+        
+      });
+
+      window.addEventListener('load', () => {
+        let slimnica;
+        let amats;
+        let arsts;
+        let datums;
+        let laiks;
+
+        elmts = JSON.parse(localStorage.getItem("Admin saraksts"));
+        checkIfArrayNull = (elmts == null) ? true : false;
+        
+        
+        
+        
+
+         // || "Empty"
+        //console.log("Running time: "+ i);
+        
+         if(!checkIfArrayNull)
+          {
+          console.log("Array exists");
+
+          for (let i = 0; i < elmts.length; i++) 
+          {
+              let first = document.createElement("option");
+              let second = document.createElement("option");
+              let third = document.createElement("option");
+              let fourth = document.createElement("option");
+              let fifth = document.createElement("option");
+            
+              slimnica = elmts[i].slimnica;
+              amats = elmts[i].amats;
+              arsts = elmts[i].arsts;
+              datums = elmts[i].datums;
+              laiks = elmts[i].laiks;
+              
+              first.textContent = slimnica;
+              first.value = slimnica;
+              first.setAttribute("id", `Slimnica${i+1}`);
+              selectSlimnica.appendChild(first);
+
+              second.textContent = amats;
+              second.value = amats;
+              second.setAttribute("id", `Amats${i+1}`);
+              selectAmats.appendChild(second);
+            
+              third.textContent = arsts;
+              third.value = arsts;
+              third.setAttribute("id", `Arsts${i+1}`);
+              selectArsts.appendChild(third);
+
+              fourth.textContent = datums;
+              fourth.value = datums;
+              fourth.setAttribute("id", `Datums${i+1}`);
+              selectDatums.appendChild(fourth);
+
+              fifth.textContent = laiks;
+              fifth.value = laiks;
+              fifth.setAttribute("id", `Laiks${i+1}`);
+              selectLaiks.appendChild(fifth);
+
+            //console.log(i+" Vertibas: "+slimnica+" "+amats+" "+arsts+" "+datums+" "+laiks) 
+            //console.log("Running time: "+ i);
+          }
         }
+        else
+        {
+          console.log("Array is empty");
+
+          let first = document.createElement("option");
+          let second = document.createElement("option");
+          let third = document.createElement("option");
+          let fourth = document.createElement("option");
+          let fifth = document.createElement("option");
+          
+          first.textContent = "Vizītes nav iespējams pieteikt";
+          first.value = "Vizītes nav iespējams pieteikt";
+
+          second.textContent = "Vizītes nav iespējams pieteikt";
+          second.value = "Vizītes nav iespējams pieteikt";
+
+          third.textContent = "Vizītes nav iespējams pieteikt";
+          third.value = "Vizītes nav iespējams pieteikt";
+
+          fourth.textContent = "Vizītes nav iespējams pieteikt";
+          fourth.value = "Vizītes nav iespējams pieteikt";
+          
+          fifth.textContent = "Vizītes nav iespējams pieteikt";
+          fifth.value = "Vizītes nav iespējams pieteikt";
+          
+          selectSlimnica.appendChild(first);
+          selectAmats.appendChild(second);
+          selectArsts.appendChild(third);
+          selectDatums.appendChild(fourth);
+          selectLaiks.appendChild(fifth);
+        }
+});
     </script>
     <script src="static/js/global.js"></script>
 </body>

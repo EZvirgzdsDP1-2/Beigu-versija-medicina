@@ -1,5 +1,5 @@
 let adminInfo = [];
-
+let klientuVizites = [];
 
 /*
 function AddRow()
