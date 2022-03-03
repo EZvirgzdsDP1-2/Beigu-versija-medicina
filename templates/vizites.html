@@ -65,7 +65,10 @@
         </tbody>
     </table>
     <br><br>
-      
+
+    <!-- <button id="deleteVisits">Izdzēst visas vizītes</button> -->
+
+    <br><br>
     <table border="4" id="show">
         <thead>
         <tr>
@@ -87,24 +90,68 @@
   </div>      
   <script>
         let down = document.getElementById('gfg');
-    
-        let selectSlimnica = document.getElementById("arrSlimnica");
-        let selectAmats = document.getElementById("arrAmats");
-        let selectArsts = document.getElementById("arrArsts");
-        let selectDatums = document.getElementById("arrDatums");
-        let selectLaiks = document.getElementById("arrLaiks");
-    
+
         let elmts;
         let checkIfArrayNull;
   
-        
+        let n = 1;
+        let x = 0;
     
       document.getElementById("addVisit").addEventListener('click', function(){
-        
 
+        if(!checkIfArrayNull)
+        {
+          let slimnicaID = document.getElementById("arrSlimnica");
+          let amatsID = document.getElementById("arrAmats");
+          let arstsID = document.getElementById("arrArsts");
+          let datumsID = document.getElementById("arrDatums");
+          let laiksID = document.getElementById("arrLaiks");
+
+          let userChoiceSlimnica = slimnicaID.options[slimnicaID.selectedIndex].text;
+          let userChoiceAmats = amatsID.options[amatsID.selectedIndex].text;
+          let userChoiceArsts = arstsID.options[arstsID.selectedIndex].text;
+          let userChoiceDatums = datumsID.options[datumsID.selectedIndex].text;
+          let userChoiceLaiks = laiksID.options[laiksID.selectedIndex].text;
+          
+
+          let AddRown = document.getElementById('show');
+          let NewRow = AddRown.insertRow(n);
+      
+          console.log("Šis ir tests "+userChoiceSlimnica);
+        
+          klientuVizites.push({klientsSlimnica: userChoiceSlimnica, klientsAmats: userChoiceAmats, klientsArsts: userChoiceArsts, klientsDatums: userChoiceDatums, klientsLaiks: userChoiceLaiks});
+    
+          localStorage.setItem("Klientu vizisu saraksts",JSON.stringify(klientuVizites));
+        
+          let cel1 = NewRow.insertCell(0);
+          let cel2 = NewRow.insertCell(1);
+          let cel3 = NewRow.insertCell(2);
+          let cel4 = NewRow.insertCell(3);
+          let cel5 = NewRow.insertCell(4);
+    
+    
+          for(let i=0;i<adminInfo.length;++i)
+            {
+              cel1.innerHTML = klientuVizites[i].klientsSlimnica;
+              cel2.innerHTML = klientuVizites[i].klientsAmats;
+              cel3.innerHTML = klientuVizites[i].klientsArsts;
+              cel4.innerHTML = klientuVizites[i].klientsDatums;
+              cel5.innerHTML = klientuVizites[i].klientsLaiks;
+            }
+         
+          n++;
+    
+
+      }
+      else
+      {
+          alert("Vizītes nav iespējams pieteikt!");
+      }
         
       });
 
+
+    
       window.addEventListener('load', () => {
         let slimnica;
         let amats;
@@ -112,19 +159,23 @@
         let datums;
         let laiks;
 
+        let selectSlimnica = document.getElementById("arrSlimnica");
+        let selectAmats = document.getElementById("arrAmats");
+        let selectArsts = document.getElementById("arrArsts");
+        let selectDatums = document.getElementById("arrDatums");
+        let selectLaiks = document.getElementById("arrLaiks");
+        
         elmts = JSON.parse(localStorage.getItem("Admin saraksts"));
         checkIfArrayNull = (elmts == null) ? true : false;
+        n = 1;
         
-        
-        
-        
-
-         // || "Empty"
-        //console.log("Running time: "+ i);
+        loadVizitesData();
         
          if(!checkIfArrayNull)
           {
           console.log("Array exists");
+
+          
 
           for (let i = 0; i < elmts.length; i++) 
           {
@@ -141,27 +192,27 @@
               laiks = elmts[i].laiks;
               
               first.textContent = slimnica;
-              first.value = slimnica;
+              first.value = i+1;
               first.setAttribute("id", `Slimnica${i+1}`);
               selectSlimnica.appendChild(first);
 
               second.textContent = amats;
-              second.value = amats;
+              second.value = i+1;
               second.setAttribute("id", `Amats${i+1}`);
               selectAmats.appendChild(second);
             
               third.textContent = arsts;
-              third.value = arsts;
+              third.value = i+1;
               third.setAttribute("id", `Arsts${i+1}`);
               selectArsts.appendChild(third);
 
               fourth.textContent = datums;
-              fourth.value = datums;
+              fourth.value = i+1;
               fourth.setAttribute("id", `Datums${i+1}`);
               selectDatums.appendChild(fourth);
 
               fifth.textContent = laiks;
-              fifth.value = laiks;
+              fifth.value = i+1;
               fifth.setAttribute("id", `Laiks${i+1}`);
               selectLaiks.appendChild(fifth);
 
@@ -201,6 +252,49 @@
           selectLaiks.appendChild(fifth);
         }
 });
+
+    function loadVizitesData()
+      {
+        let tempDataArray = JSON.parse(localStorage.getItem("Klientu vizisu saraksts"));
+
+        if(tempDataArray != null)
+        {
+          let o = 1;
+          let AddRown = document.getElementById('show');      
+              
+          for(let i=0;i<tempDataArray.length;++i)
+          {
+            let NewRow = AddRown.insertRow(o);
+                
+          
+            let cel1 = NewRow.insertCell(0);
+            let cel2 = NewRow.insertCell(1);
+            let cel3 = NewRow.insertCell(2);
+            let cel4 = NewRow.insertCell(3);
+            let cel5 = NewRow.insertCell(4);
+      
+            cel1.innerHTML = tempDataArray[i].klientsSlimnica;
+            cel2.innerHTML = tempDataArray[i].klientsAmats;
+            cel3.innerHTML = tempDataArray[i].klientsArsts;
+            cel4.innerHTML = tempDataArray[i].klientsDatums;
+            cel5.innerHTML = tempDataArray[i].klientsLaiks;
+      
+          
+            ++o;
+
+            if(!checkIfArrayNull)
+            {
+              ++n;
+            }
+        }
+      }
+    }
+/*
+    document.getElementById("deleteVisits").addEventListener('click', function(){
+      klientuVizites = [];
+      localStorage.removeItem("Klientu vizisu saraksts");
+      location.reload();
+    });*/
     </script>
     <script src="static/js/global.js"></script>
 </body>
